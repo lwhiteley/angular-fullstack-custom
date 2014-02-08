@@ -1,0 +1,29 @@
+
+<div set-browser-title="Home | myApp">
+<div class="jumbotron">
+  <h1>'Allo, 'Allo!</h1>
+  <p class="lead" growl>
+    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
+    Always a pleasure scaffolding your apps.
+  </p>
+  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
+</div>
+<div class="row marketing">
+  <div ng-repeat="thing in awesomeThings">
+      <h4>{{thing.name}}</h4>
+      <p>{{thing.info}}</p>
+<!--      <span ng-bind="date | date:'short' "></span>-->
+  </div>
+</div>
+
+<div class="footer">
+  <p>♥ from the Yeoman team</p>
+</div>
+
+<p>test to see if UI Bootstrap is working</p>
+ <div style="display:inline-block; min-height:290px;">
+      <div class="well well-sm" ng-model="dt">
+          <datepicker min="minDate" show-weeks="showWeeks"></datepicker>
+      </div>
+    </div>
+</div>
