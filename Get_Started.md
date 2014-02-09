@@ -30,7 +30,7 @@ Download and install MongoDB
 If you dont have any of the tools listed after the `-g` statement in the following command.
 then run this command from your command prompt
 
-`npm install -g yo node-inspector nodemon grunt-cli bower karma istanbul`
+`npm install -g yo node-inspector nodemon grunt-cli bower karma istanbul npm-check-updates`
 
 ####5. Create And/or go to a development folder
 If you have  prefered development folder navigate to that directory in your command prompt.

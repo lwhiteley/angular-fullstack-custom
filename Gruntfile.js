@@ -52,7 +52,7 @@ module.exports = function (grunt) {
     },
     open: {
       server: {
-        url: 'http://localhost:<%= express.options.port %>'
+        path: 'http://localhost:<%= express.options.port %>'
       }
     },
     watch: {
@@ -171,7 +171,7 @@ module.exports = function (grunt) {
     // Automatically inject Bower components into the app
     'bower-install': {
       app: {
-        html: '<%= yeoman.app %>/views/index.html',
+        src: ['<%= yeoman.app %>/views/index.html'],
         ignorePath: '<%= yeoman.app %>/'
       }
     },
