@@ -14,7 +14,8 @@ module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
-
+    var port = (process.env.PORT || 9000);
+    var portAsString = '' + port;
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -23,7 +24,8 @@ module.exports = function (grunt) {
       // configurable paths
       app: require('./bower.json').appPath || 'app',
       dist: 'public',
-      views: 'views'
+      views: 'views',
+        port: port
     },
     shell: {
         mongo: {
@@ -35,7 +37,7 @@ module.exports = function (grunt) {
     },
     express: {
       options: {
-        port: process.env.PORT || 9000
+        port: port
       },
       dev: {
         options: {
@@ -50,9 +52,10 @@ module.exports = function (grunt) {
         }
       }
     },
+
     open: {
       server: {
-        path: 'http://localhost:<%= express.options.port %>'
+        path: 'http://localhost:<%= yeoman.port %>'
       }
     },
     watch: {
@@ -82,7 +85,7 @@ module.exports = function (grunt) {
       livereload: {
         files: [
           '<%= yeoman.app %>/<%= yeoman.views %>/{,*//*}*.{html,jade}',
-          '<%= yeoman.app %>/<%= yeoman.views %>/**/{,*//*}*.{html,jade}',
+          '<%= yeoman.app %>/<%= yeoman.views %>/partials/{,*//*}*.{html,jade}',
           '{.tmp,<%= yeoman.app %>}/styles/{,*//*}*.css',
           '{.tmp,<%= yeoman.app %>}/scripts/{,*//*}*.js',
           '<%= yeoman.app %>/scripts/**/{,*/}*.js',
@@ -400,7 +403,32 @@ module.exports = function (grunt) {
       require: ['should']
     },
     all: ["test/backend/**/*.js"]
-  }
+  },
+       wait: {
+        options: {
+            delay: 500
+        },
+        pause: {
+            options: {
+                before : function(options) {
+                    console.log('Waiting on MongoDB to start: pausing %dms', options.delay);
+                },
+                after : function() {
+                    console.log('pause end');
+                }
+            }
+        },
+        random: {
+            options: {
+                delay: 10,
+                after : function() {
+                    console.log('gamble');
+                    return Math.random() < 0.05 ? false : true;
+                }
+            }
+        }
+    }
+
 
   });
 
@@ -421,6 +449,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'shell:mongo',
+      'wait:pause',
       'clean:server',
       'bower-install',
       'concurrent:server',
