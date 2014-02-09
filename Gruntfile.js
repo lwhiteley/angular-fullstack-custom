@@ -61,7 +61,7 @@ module.exports = function (grunt) {
                 '<%= yeoman.app %>/scripts/**/{,*/}*.js'],
         tasks: ['newer:jshint:all'],
         options: {
-          livereload: false
+          livereload: true
         }
       },
       jsTest: {
@@ -404,12 +404,11 @@ module.exports = function (grunt) {
 
   });
 
-  grunt.loadNpmTasks('grunt-shell-spawn');
-  grunt.loadNpmTasks("grunt-contrib-watch");
-  grunt.loadNpmTasks("grunt-contrib-jshint");
-  grunt.loadNpmTasks("grunt-mocha-cli");
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
+//  grunt.loadNpmTasks('grunt-shell-spawn');
+//  grunt.loadNpmTasks("grunt-contrib-watch");
+//  grunt.loadNpmTasks("grunt-contrib-jshint");
+//  grunt.loadNpmTasks("grunt-mocha-cli");
+//  grunt.loadNpmTasks('grunt-contrib-clean');
 
   grunt.registerTask('express-keepalive', 'Keep grunt running', function() {
     this.async();
