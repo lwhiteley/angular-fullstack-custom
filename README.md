@@ -1,4 +1,3 @@
-
 Node Custom Scaffolded App
 ========================
 
@@ -27,6 +26,7 @@ Download and install MongoDB
 [http://www.mongodb.org/](http://www.mongodb.org/)
 
 > - to setup mongo on a windows pc, please view [instructions](http://www.mkyong.com/mongodb/how-to-install-mongodb-on-windows/)
+
 > ensure to add the mongo bin folder path tou your system PATH variable. view [instructions](http://www.windows-commandline.com/set-path-command-line/)
 
 > - for mac users, its recommended to use `homebrew`
