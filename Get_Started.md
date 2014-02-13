@@ -25,6 +25,12 @@ Download and install MongoDB
 
 [http://www.mongodb.org/](http://www.mongodb.org/)
 
+> - to setup mongo on a windows pc, please view [instructions](http://www.mkyong.com/mongodb/how-to-install-mongodb-on-windows/)
+
+> - for mac users, its recommended to use `homebrew`
+
+> `brew install mongodb`
+
 ####4. Run this command to install Global Node tools
 
 If you dont have any of the tools listed after the `-g` statement in the following command.
@@ -47,16 +53,17 @@ run `cd \dev`
 
 Run this command once the cd command to you development folder is successful
 
-`git clone repo-url`
+`git clone https://github.com/lwhiteley/angular-fullstack-custom.git`
 
-` repo-url ` is a placeholder for the actual git repository.
+####7. change working directory
 
-You will need to enter your bitbucket password to authenticate the download
+`cd angular-fullstack-custom`
 
-After the download is finished do what necessary to change git tracking to a new git repository to not check in things to the template
+####8. set git to track your own git repository to avoid checking in changs to the template
 
+`git remote set-url origin git://new.url.here`
 
-####7. Run this command to install all Node dependencies
+####9. Run this command to install all Node dependencies
 
 ` npm install`
 
