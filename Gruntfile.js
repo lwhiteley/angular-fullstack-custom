@@ -70,7 +70,7 @@ module.exports = function (grunt) {
       },
       jsTest: {
         files: ['test/frontend/spec/**/{,*/}*.js'],
-        tasks: ['karma']
+        tasks: ['karma:unit']
       },
       backendTest: {
         files: ['test/backend/**/{,*/}*.js'],
@@ -407,7 +407,7 @@ module.exports = function (grunt) {
   },
        wait: {
         options: {
-            delay: 500
+            delay: 700
         },
         pause: {
             options: {
