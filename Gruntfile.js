@@ -16,6 +16,7 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
     var port = (process.env.PORT || 9000);
     var portAsString = '' + port;
+    console.log('port  as string :', portAsString);
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -442,14 +443,18 @@ module.exports = function (grunt) {
     this.async();
   });
 
+  grunt.registerTask('mongo', [
+      'shell:mongo',
+      'wait:pause'
+  ]);
+
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'express:prod', 'open', 'express-keepalive']);
     }
 
     grunt.task.run([
-      'shell:mongo',
-      'wait:pause',
+      'mongo',
       'clean:server',
       'bower-install',
       'concurrent:server',

@@ -1,11 +1,6 @@
-angular-fullstack-custom
-========================
-
-angular-fullstack-custom scaffold
-
 
 Node Custom Scaffolded App
-==============
+========================
 
 ##How to  get started
 
@@ -65,7 +60,7 @@ Run this command once the cd command to you development folder is successful
 
 `cd angular-fullstack-custom`
 
-####8. set git to track your own git repository to avoid checking in changs to the template
+####8. set git to track your own git repository to avoid checking in changes to the template
 
 `git remote set-url origin git://new.url.here`
 
