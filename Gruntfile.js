@@ -389,7 +389,10 @@ module.exports = function (grunt) {
     },
   mochacov: {
     options: {
-        files: 'test/backend/spec/**/*.js',
+        files: [
+            'test/backend/helpers/globals.js',
+            'test/backend/spec/**/*.js'
+        ],
         require: ['should'],
             ui: "bdd"
     },
