@@ -387,23 +387,24 @@ module.exports = function (grunt) {
         singleRun: true
       }
     },
-
-  mochacli: {
-      options: {
-        reporter: "nyan",
-        ui: "tdd",
-        require: ['should']
-      },
-      all: ["test/backend/**/*.js"]
-    },
-
   mochacov: {
     options: {
-      reporter: 'nyan',
-      ui: "bdd",
-      require: ['should']
+        files: 'test/backend/spec/**/*.js',
+        require: ['should'],
+            ui: "bdd"
     },
-    all: ["test/backend/**/*.js"]
+    test: {
+        options:{
+            reporter: 'spec'
+        }
+    },
+    coverage: {
+        options:{
+            instrument: true,
+            reporter: 'html-cov',
+            output: 'test/backend/coverage/coverage.html'
+        }
+    }
   },
        wait: {
         options: {
@@ -432,12 +433,6 @@ module.exports = function (grunt) {
 
 
   });
-
-//  grunt.loadNpmTasks('grunt-shell-spawn');
-//  grunt.loadNpmTasks("grunt-contrib-watch");
-//  grunt.loadNpmTasks("grunt-contrib-jshint");
-//  grunt.loadNpmTasks("grunt-mocha-cli");
-//  grunt.loadNpmTasks('grunt-contrib-clean');
 
   grunt.registerTask('express-keepalive', 'Keep grunt running', function() {
     this.async();
@@ -471,6 +466,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('test-ci', [
+      //'blanket',
     'clean:server',
     'clean:coverage',
     'concurrent:test',
