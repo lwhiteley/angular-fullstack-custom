@@ -1,7 +1,7 @@
 'use strict';
 
 // Module dependencies.
-var express = require('express'),  
+var express = require('express'),
     path = require('path'),
     fs = require('fs');
 
@@ -9,27 +9,27 @@ var app = express();
 var env = app.get('env');
 
 // env specific property file
-var props = require('./lib/config/properties/properties')(env);
+var props = require('./app_lib/config/properties/properties')(env);
 
 // Connect to database
-var db = require('./lib/db/mongo');
+var db = require('./app_lib/db/mongo');
 
 // Bootstrap models
-var modelsPath = path.join(__dirname, 'lib/models');
+var modelsPath = path.join(__dirname, 'app_lib/models');
 fs.readdirSync(modelsPath).forEach(function (file) {
   require(modelsPath + '/' + file);
 });
 
 // Populate empty DB with dummy data
-require('./lib/db/dummydata');
+require('./app_lib/db/dummydata');
 
 
 // Express Configuration
-require('./lib/config/express')(app);
+require('./app_lib/config/express')(app);
 
 // Controllers
-var api = require('./lib/controllers/api'),
-    index = require('./lib/controllers');
+var api = require('./app_lib/controllers/api'),
+    index = require('./app_lib/controllers');
 
 // Server Routes
 app.get('/api/awesomeThings', api.awesomeThings);

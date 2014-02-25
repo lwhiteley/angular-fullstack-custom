@@ -67,18 +67,20 @@
     "grunt-wait": "~0.1.0",
     "grunt-mocha-test": "~0.9.3",
     "blanket": "~1.1.6",
-    "grunt-blanket": "0.0.8"
+    "grunt-blanket": "0.0.8",
+    "chai": "~1.9.0"
   },
   "engines": {
     "node": ">=0.8.0"
   },
   "config": {
-      "blanket": {
-        "pattern": [
-          "src"
-        ]
-      }
-},
+    "blanket": {
+      "pattern": [
+        "app_lib",
+        "/app-server.js"
+      ]
+    }
+  },
   "scripts": {
     "test": "grunt test"
   }

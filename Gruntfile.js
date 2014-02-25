@@ -41,13 +41,13 @@ module.exports = function (grunt) {
       },
       dev: {
         options: {
-          script: 'server.js',
+          script: 'app-server.js',
           debug: true
         }
       },
       prod: {
         options: {
-          script: 'server.js',
+          script: 'app-server.js',
           node_env: 'production'
         }
       }
@@ -56,7 +56,10 @@ module.exports = function (grunt) {
     open: {
       server: {
         path: 'http://localhost:<%= yeoman.port %>'
-      }
+      },
+        backendCoverage:{
+            path: 'test/coverage/backend/coverage.html'
+        }
     },
     watch: {
       js: {
@@ -98,8 +101,8 @@ module.exports = function (grunt) {
       },
       express: {
         files: [
-          'server.js',
-          'lib/{,*//*}*.{js,json}'
+          'app-server.js',
+          'app_lib/{,*//*}*.{js,json}'
         ],
         tasks: ['express:dev'],
         options: {
@@ -321,7 +324,7 @@ module.exports = function (grunt) {
           dest: 'heroku',
           src: [
             'package.json',
-            'server.js',
+            'app-server.js',
             'lib/**/*'
           ]
         }]
@@ -388,6 +391,12 @@ module.exports = function (grunt) {
       }
     },
   //instrumented files in (package.json).config
+      blanket:{
+          coverage: {
+            src: ['app_lib/', '/app-server.js'],
+            dest: 'coverage/src/'
+          }
+      },
   mochacov: {
     options: {
         files: [
@@ -449,7 +458,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('serve', function (target) {
     if (target === 'dist') {
-      return grunt.task.run(['build', 'express:prod', 'open', 'express-keepalive']);
+      return grunt.task.run(['build', 'express:prod', 'open:server', 'express-keepalive']);
     }
 
     grunt.task.run([
@@ -459,7 +468,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'autoprefixer',
       'express:dev',
-      'open',
+      'open:server',
       'watch'
     ]);
   });
@@ -470,9 +479,10 @@ module.exports = function (grunt) {
   });
 
  grunt.registerTask('test-backend', [
-    //'mongo',
-    //'clean:backendCoverage',
-    'mochacov'
+    //'blanket',
+    'clean:backendCoverage',
+    'mochacov',
+    'open:backendCoverage',
   ]);
   grunt.registerTask('test-ci', [
     'clean:server',
