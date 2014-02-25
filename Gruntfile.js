@@ -16,7 +16,6 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
     var port = (process.env.PORT || 9000);
     var portAsString = '' + port;
-    console.log('port  as string :', portAsString);
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -154,7 +153,8 @@ module.exports = function (grunt) {
         }]
       },
       server: '.tmp',
-      coverage: 'test/frontend/coverage/'
+      coverage: 'test/coverage/frontend/',
+      backendCoverage: 'test/coverage/backend/'
     },
 
     // Add vendor prefixed styles
@@ -406,13 +406,13 @@ module.exports = function (grunt) {
         options:{
             instrument: true,
             reporter: 'html-cov',
-            output: 'test/backend/coverage/coverage.html'
+            output: 'test/coverage/backend/coverage.html'
         }
     }
   },
-       wait: {
+   wait: {
         options: {
-            delay: 700
+            delay: 600
         },
         pause: {
             options: {
@@ -433,7 +433,7 @@ module.exports = function (grunt) {
                 }
             }
         }
-    }
+   }
 
 
   });
@@ -469,13 +469,17 @@ module.exports = function (grunt) {
     grunt.task.run(['serve']);
   });
 
+ grunt.registerTask('test-backend', [
+    //'mongo',
+    //'clean:backendCoverage',
+    'mochacov'
+  ]);
   grunt.registerTask('test-ci', [
-      //'blanket',
     'clean:server',
     'clean:coverage',
     'concurrent:test',
     'autoprefixer',
-    'mochacov',
+    'test-backend',
     'karma:unit'
   ]);
 

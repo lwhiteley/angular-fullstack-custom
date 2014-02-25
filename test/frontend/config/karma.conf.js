@@ -52,7 +52,7 @@ module.exports = function(config) {
 
     coverageReporter : {
             type : 'html',
-            dir : './test/frontend/coverage/'
+            dir : './test/coverage/frontend/'
         },
 
 
