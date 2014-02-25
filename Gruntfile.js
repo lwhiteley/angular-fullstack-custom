@@ -391,12 +391,6 @@ module.exports = function (grunt) {
       }
     },
   //instrumented files in (package.json).config
-      blanket:{
-          coverage: {
-            src: ['app_lib/', '/app-server.js'],
-            dest: 'coverage/src/'
-          }
-      },
   mochacov: {
     options: {
         files: [
@@ -479,7 +473,6 @@ module.exports = function (grunt) {
   });
 
  grunt.registerTask('test-backend', [
-    //'blanket',
     'clean:backendCoverage',
     'mochacov',
     'open:backendCoverage',
