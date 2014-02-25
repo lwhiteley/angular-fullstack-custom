@@ -387,6 +387,7 @@ module.exports = function (grunt) {
         singleRun: true
       }
     },
+  //instrumented files in (package.json).config
   mochacov: {
     options: {
         files: [
