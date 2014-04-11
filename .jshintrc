@@ -19,7 +19,7 @@
   "smarttabs": false,
   "globals": {
     "angular": true,
-    "mainApp": true,
+    "app": true,
     "FastClick": true,
     "$": true,
     "Modernizr": true,

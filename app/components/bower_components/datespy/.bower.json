@@ -1,0 +1,31 @@
+{
+  "name": "datespy",
+  "homepage": "https://github.com/ferronrsmith/datespy",
+  "authors": [
+    "ferron <ferronrsmith@gmail.com>"
+  ],
+  "description": "A Simple Date Mocking Library",
+  "main": "dest/datespy.min.js",
+  "keywords": [
+    "mock",
+    "date"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "5d09fc7a2e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "5d09fc7a2eb601ca2682c6fc8ce746b293c1f657"
+  },
+  "_source": "git://github.com/ferronrsmith/datespy.git",
+  "_target": "*",
+  "_originalSource": "datespy",
+  "_direct": true
+}

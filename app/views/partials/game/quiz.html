@@ -1,0 +1,13 @@
+<div class="quiz-container" set-browser-title="Quiz | Fiyuh">
+
+        <div>
+            <div> Welcome to fiyuh Quiz</div>
+            <div>Choose an option to begin:</div>
+            <ul ng-repeat="option in quizOptions">
+                <li > <a href ng-click="$event.stopPropagation();"><span ng-bind="option"></span> </a></li>
+            </ul>
+        </div>
+        <div class="quiz-footer">
+           <span> Score: <span ng-bind="quizScore"> </span> </span>
+        </div>
+</div>

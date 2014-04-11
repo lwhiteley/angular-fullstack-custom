@@ -77,8 +77,12 @@ body {
   }
 }
 
-/*app styles*/
+/*fiyuh styles*/
 
+.ui-pnotify-container {
+    position: relative;
+    top: 70px;
+}
 .fy-nav{
     background-image:url('../images/background/nav-bg-2.jpg');
     padding-top: 10px;
@@ -92,3 +96,22 @@ body {
     text-align:center;
 }
 
+/*fiyuh quiz styles*/
+.quiz-container{
+    background-image:url('../images/background/quiz-bg-1.jpg');
+    width: 700px;
+    height: 500px;
+    padding-right: 0px;
+    padding-left: 0px;
+
+    color: white;
+}
+
+.quiz-footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:60px;   /* Height of the footer */
+    background:#3090C7;
+}
+/* end fiyuh quiz styles*/

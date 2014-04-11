@@ -1,0 +1,22 @@
+{
+  "name": "datespy",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ferronrsmith/datespy",
+  "authors": [
+    "ferron <ferronrsmith@gmail.com>"
+  ],
+  "description": "A Simple Date Mocking Library",
+  "main": "dest/datespy.min.js",
+  "keywords": [
+    "mock",
+    "date"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

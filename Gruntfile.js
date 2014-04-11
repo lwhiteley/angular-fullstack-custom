@@ -325,7 +325,7 @@ module.exports = function (grunt) {
           src: [
             'package.json',
             'app-server.js',
-            'lib/**/*'
+            'app-lib/**/*'
           ]
         }]
       },
@@ -436,7 +436,40 @@ module.exports = function (grunt) {
                 }
             }
         }
-   }
+   },
+   injector: {
+    options: {
+      ignorePath: ['app/']
+    },
+    app_js: {
+      files: {
+        'app/views/index.html': ['app/scripts/**/*.js'],
+      }
+    },
+    app_lib_js: {
+        options: {
+          starttag: '<!-- injector:manualAngular -->'
+        },
+        files: {
+          'app/views/index.html': [
+            'app/components/bower_components/angulartics/src/angulartics-ga.js',
+            'app/components/bower_components/angulartics/src/angulartics-scroll.js',
+            'app/components/custom/appUtil/appUtil.js'
+          ]
+        }
+    },
+    manual_vendor: {
+        options: {
+          starttag: '<!-- injector:manualVendor -->'
+        },
+        files: {
+          'app/views/index.html': [
+            'app/components/bower_components/jquery/dist/jquery.js',
+            'app/components/bower_components/jquery-waypoints/waypoints.js'
+          ]
+        }
+    }
+  }
 
 
   });
@@ -458,7 +491,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'mongo',
       'clean:server',
-      'bower-install',
+      'injectr',
       'concurrent:server',
       'autoprefixer',
       'express:dev',
@@ -472,29 +505,39 @@ module.exports = function (grunt) {
     grunt.task.run(['serve']);
   });
 
- grunt.registerTask('test-backend', [
+grunt.registerTask('injectr', [
+   'injector',
+   'bower-install'
+ ]);
+
+ grunt.registerTask('test-backend-ci', [
     'clean:backendCoverage',
-    'mochacov',
-    'open:backendCoverage',
+    'mochacov'
   ]);
+  grunt.registerTask('test-backend', [
+     'test-backend-ci',
+     'open:backendCoverage',
+   ]);
   grunt.registerTask('test-ci', [
     'clean:server',
     'clean:coverage',
     'concurrent:test',
     'autoprefixer',
-    'test-backend',
+    'test-backend-ci',
     'karma:unit'
   ]);
 
   grunt.registerTask('test', [
-    'test-ci',
+    'test-ci'
+  ]);
+  grunt.registerTask('test-e2e', [
     'karma:e2e'
   ]);
 
   grunt.registerTask('build', [
     'test-ci',
     'clean:dist',
-    'bower-install',
+    'injectr',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',

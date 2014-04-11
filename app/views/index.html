@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <base href="/">
-    <title>My APP</title>
+    <title>Fiyuh</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -17,16 +17,20 @@
         }
     </style>
   </head>
-  <body ng-app="myApp">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. All features may not be supported by this browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience. </p>
+  <body ng-app="app">
+
+    <!--[if lt IE 11]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser.
+      All features may not be supported by this browser.
+      Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a>
+      to improve your experience. </p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
 
     <div class="container fy-container" >
         <div ng-include=" 'partials/core/navbar' "></div>
-         <div ng-view>
+         <div ui-view>
 <!--             <div class="center"><i class="fa fa-refresh fa-spin fa-5x "></i></div>-->
         </div>
     </div>
@@ -38,12 +42,13 @@
 
     <!-- build:css(app) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="components/bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="components/bower_components/AngularJS-Toaster/toaster.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="components/bower_components/fontawesome/css/font-awesome.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 
@@ -60,59 +65,74 @@
     </script>
 
     <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <script src="components/bower_components/es5-shim/es5-shim.js"></script>
+    <script src="components/bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
     <!-- Manually entered lib vendor scripts -->
     <!-- build:js(app) scripts/manual-vendor.js -->
-    <script src="bower_components/jquery/jquery.js"></script>
-    <script src="bower_components/jquery-waypoints/waypoints.js"></script>
+    <!-- injector:manualVendor -->
+    <script src="/components/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/components/bower_components/jquery-waypoints/waypoints.js"></script>
+    <!-- endinjector -->
     <!-- endbuild -->
     <!-- end manual entry -->
 
     <!-- build:js(app) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/modernizr/modernizr.js"></script>
-    <script src="bower_components/fastclick/lib/fastclick.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-logex/dist/log-ex-unobtrusive.js"></script>
-    <script src="bower_components/lodash/dist/lodash.compat.js"></script>
-    <script src="bower_components/restangular/dist/restangular.min.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angulartics/src/angulartics.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="bower_components/angular-bindonce/bindonce.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-moment/angular-moment.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="components/bower_components/jquery/dist/jquery.js"></script>
+    <script src="components/bower_components/modernizr/modernizr.js"></script>
+    <script src="components/bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="components/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="components/bower_components/moment/moment.js"></script>
+    <script src="components/bower_components/angular/angular.js"></script>
+    <script src="components/bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="components/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="components/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="components/bower_components/angular-touch/angular-touch.js"></script>
+    <script src="components/bower_components/angular-logex/dist/log-ex-unobtrusive.js"></script>
+    <script src="components/bower_components/lodash/dist/lodash.compat.js"></script>
+    <script src="components/bower_components/restangular/dist/restangular.min.js"></script>
+    <script src="components/bower_components/angulartics/src/angulartics.js"></script>
+    <script src="components/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="components/bower_components/angular-bindonce/bindonce.js"></script>
+    <script src="components/bower_components/angular-moment/angular-moment.js"></script>
+    <script src="components/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="components/bower_components/ngstorage/ngStorage.js"></script>
+    <script src="components/bower_components/AngularJS-Toaster/toaster.js"></script>
+    <script src="components/bower_components/angular-socialshare/angular-socialshare.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- Manually entered angular vendor scripts -->
     <!-- build:js(app) scripts/manual-angular.js -->
-    <script src="bower_components/angulartics/src/angulartics-ga.js"></script>
-    <script src="bower_components/angulartics/src/angulartics-scroll.js"></script>
+    <!-- injector:manualAngular -->
+    <script src="/components/bower_components/angulartics/src/angulartics-ga.js"></script>
+    <script src="/components/bower_components/angulartics/src/angulartics-scroll.js"></script>
+    <script src="/components/custom/appUtil/appUtil.js"></script>
+    <!-- endinjector -->
     <!-- endbuild -->
     <!-- end manual entry -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/lib/appUtil/appUtil.js"></script>
-    <script src="scripts/app/app.js"></script>
-    <script src="scripts/app/app_providers.js"></script>
-    <script src="scripts/app/config/app_config.js"></script>
-    <script src="scripts/app/core/core_values.js"></script>
-    <script src="scripts/app/core/core_services.js"></script>
-    <script src="scripts/app/core/core_controllers.js"></script>
-    <script src="scripts/app/core/core_directives.js"></script>
-    <script src="scripts/app/game/game_controllers.js"></script>
+    <!-- injector:js -->
+    <script src="/scripts/_app.js"></script>
+    <script src="/scripts/_dependencies.js"></script>
+    <script src="/scripts/_providers/device.js"></script>
+    <script src="/scripts/config/app_config.js"></script>
+    <script src="/scripts/features/core/_app_core.js"></script>
+    <script src="/scripts/features/core/config/routes.js"></script>
+    <script src="/scripts/features/core/constants/_core.js"></script>
+    <script src="/scripts/features/core/controllers/_core.js"></script>
+    <script src="/scripts/features/core/directives/_core.js"></script>
+    <script src="/scripts/features/core/services/_core.js"></script>
+    <script src="/scripts/features/game/_app_game.js"></script>
+    <script src="/scripts/features/game/config/routes.js"></script>
+    <script src="/scripts/features/game/controllers/_core.js"></script>
+    <script src="/scripts/features/game/controllers/quiz.js"></script>
+    <script src="/scripts/features/travel/_app_travel.js"></script>
+    <script src="/scripts/features/travel/config/routes.js"></script>
+    <!-- endinjector -->
     <!-- endbuild -->
 </body>
 </html>
