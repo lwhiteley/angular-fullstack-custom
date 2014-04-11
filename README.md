@@ -92,7 +92,7 @@ eg. run command `bower install --save angular`
 
 Then
 
-run command `grunt bower-install` to  inject libraries automatically into the HTML (index.html)
+run command `grunt injectr` to  inject libraries automatically into the HTML (index.html)
 
 ####Info
 
