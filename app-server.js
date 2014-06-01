@@ -5,6 +5,7 @@ var express = require('express'),
     path = require('path'),
     fs = require('fs');
 
+
 var app = express();
 var env = app.get('env');
 
@@ -32,7 +33,8 @@ var api = require('./app_lib/controllers/api'),
     index = require('./app_lib/controllers');
 
 // Server Routes
-app.get('/api/awesomeThings', api.awesomeThings);
+var awesomeThings = express.Router();
+awesomeThings.get('/api/awesomeThings', api.awesomeThings);
 
 // Angular Routes
 app.get('/partials/*', index.partials);
