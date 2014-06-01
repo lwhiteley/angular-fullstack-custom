@@ -33,12 +33,15 @@ var api = require('./app_lib/controllers/api'),
     index = require('./app_lib/controllers');
 
 // Server Routes
-var awesomeThings = express.Router();
-awesomeThings.get('/api/awesomeThings', api.awesomeThings);
+//var awesomeThings = express.Router();
+app.route('/api/awesomeThings').get(api.awesomeThings);
 
 // Angular Routes
-app.get('/partials/*', index.partials);
-app.get('/*', index.index);
+app.route('/partials/*').get(index.partials);
+app.route('/*').get( index.index);
+
+// call our router we just created
+//app.use('/api/awesomeThings', awesomeThings);
 
 // dev
 if(env === 'development'){

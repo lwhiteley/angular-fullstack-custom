@@ -489,7 +489,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
-      'mongo',
+      //'mongo',
       'clean:server',
       'injectr',
       'concurrent:server',
@@ -507,7 +507,7 @@ module.exports = function (grunt) {
 
 grunt.registerTask('injectr', [
    'injector',
-   'bower-install'
+   //'bower-install'
  ]);
 
  grunt.registerTask('test-backend-ci', [

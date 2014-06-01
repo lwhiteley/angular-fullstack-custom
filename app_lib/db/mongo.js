@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 
 exports.mongoose = mongoose;
-
+ process.env.MONGOLAB_URI = 'mongodb://testuser:enter1@ds033489.mongolab.com:33489/fiyuh-test-db'
 // Configure for possible deployment
 var uristring =
   process.env.MONGOLAB_URI ||
